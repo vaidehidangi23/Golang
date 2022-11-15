@@ -1,8 +1,10 @@
 package main
 
 import (
+	"strconv"
 	"os"
 	"bufio"
+	"strings"
 	"fmt"
 )
 
@@ -19,5 +21,12 @@ func main(){
 	fmt.Println("Thanks for rating,",input)
 	fmt.Printf("Type of rating:%T", input)
 
+   //conversion in go
+   numRating, err := strconv.ParseFloat(strings.TrimSpace(input),64)
 
+   if err!=nil{
+	fmt.Println(err)
+   }else{
+	fmt.Println("Added 1 to your rating",numRating+1)
+   }
 }
